@@ -1,0 +1,8 @@
+CREATE USER book_ex IDENTIFIED BY book_ex;
+
+ALTER USER book_ex DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
+
+GRANT connect, DBA TO book_ex;
+
+SELECT dbms_xdb.gethttpport FROM dual; -- 오라클 포트 확인
+EXEC dbms_xdb.sethttpport(9999);
