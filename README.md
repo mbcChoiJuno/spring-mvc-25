@@ -4,7 +4,7 @@
 # settings
 관련 프로그램 설치
 1. jdk(11버전) -> 환경변수(JAVA_HOME)
-2. 톰켓(9버전) -> 포트번호(ADMIN : 8000, HTTP 1.1 : 80)
+2. 톰켓(9버전) -> 포트번호(ADMIN : 8888, HTTP 1.1 : 80)
 3. 이클립스 설치 안됨(마켓플레이스 SPRING 지원 종료) -> sts 3버전
 4. lombok.jar(홈페이지에서 다운) -> d: 저장
    -> cmd -> d: 엔터 -> java -jar lombok.jar -> 팝업에 install 클릭 -> close
@@ -37,7 +37,7 @@
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>1.18.24</version>
+		    <version>1.18.38</version>
 		    <scope>provided</scope>
 	</dependency>
 
@@ -54,14 +54,19 @@
 3. spring은 system.out.println안씀 -> log.info (log4j2) -> resources 폴더에 log4.xml 삭제 -> log4j2.xml 교체
 	<!-- log4j2 활성화 : resources log4j2.xml 변경 https://logging.apache.org/log4j/2.x/maven-artifacts.html -->
 	<dependency> 
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-api</artifactId>
-		    <version>2.18.0</version>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-api</artifactId>
+		<version>2.18.0</version>
 	</dependency>
 	<dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-core</artifactId>
-		    <version>2.18.0</version>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>2.18.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-slf4j-impl</artifactId>
+		<version>2.18.0</version>
 	</dependency>
 
 
@@ -79,7 +84,7 @@
 	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-war-plugin</artifactId>
-		<version>3.3.2</version>
+		<version>3.5.1</version>
 	</plugin>	
 
 
