@@ -22,7 +22,7 @@
    - jdk 버전 11버전 이후로 설정 (11, 141, 142행)
 4. 톰켓에 add -> 프로젝트 연결 -> 톰켓 더블클릭 -> Modules 탭에 / 컨텍스트패스 확인
 5. 톰켓 start -> 크롬 -> http://ip주소:포트/컨텍스트루트명(www) 
-   -> http://192.168.111.105/www (초기화면 나옴)
+   -> http://192.168.111.104/www (초기화면 나옴)
 6. 오라클 설치 -> 포트번호 1521 -> system/oracle
    -> cmd -> sqlplus system/oracle 
    -> 사용할 계정 생성, 권한 부여 (이클립스에 있는 dataSource explorer를 활용)
