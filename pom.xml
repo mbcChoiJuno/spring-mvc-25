@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zerock</groupId>
-	<artifactId>controller</artifactId>
-	<name>ex01</name>
+	<groupId>org.mbc</groupId>
+	<artifactId>board</artifactId>
+	<name>mbc-board</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,7 +115,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-			
+				
 		<!-- 서블릿 버전 향상 -->
 		<!-- Servlet 
 		<dependency>
@@ -131,7 +131,6 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -148,9 +147,10 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>		 <!-- 4.7에서 업그레이드 --> 
-			<scope>test</scope> 
-		</dependency>   
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>     
+		
 		
 		<!-- lombok 라이브러리 -->
 		<dependency>
@@ -165,8 +165,6 @@
 			<artifactId>ojdbc8</artifactId>
 			<version>23.2.0.0</version>
 		</dependency>
-		
-		
 		
 		
 		<!-- connection pool용 코드 추가 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
@@ -192,8 +190,6 @@
 		</bean>
 		
 		-->
-		
-		
 		
 		
 		<!-- 마이바티스 -> pstmt의 대체용  : jdbc 연동용 https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -237,23 +233,17 @@
 		-->
 		
 		
-		
-
 		<!-- 로그출력을 표형식으로 구현 https://mvnrepository.com/artifact/org.bgee.jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
 			<version>1.16</version>
 		</dependency>
-		<!-- 
-		
-		-->
 		<!-- root-context.xml 기존코드 변경
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> 
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property> 
 		-->
 		
-
 		<!-- front  결과 json
 		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
@@ -262,11 +252,9 @@
 			<version>2.9.4</version>
 		</dependency>
 		
-		
-		
-		
+		   
 	</dependencies>
-	<build>
+    <build>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>

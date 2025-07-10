@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>
+          %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} %style{%c{1.}}{magenta} - %msg%n
+        </Pattern>
+      </PatternLayout>
+      <Filters>
+        <Filter type="ScriptFilter" onMatch="ACCEPT" onMismatch="NEUTRAL">
+          <Script language="JavaScript"><![CDATA[
+            var loggerName = logEvent.getLoggerName();
+            var message = logEvent.getMessage().getFormattedMessage();
+
+            if (loggerName && loggerName.startsWith("org.apache.catalina")) {
+                logEvent.setMessage("\u001B[38;5;230m" + message + "\u001B[0m");
+            } else if (loggerName && loggerName.startsWith("org.springframework.web.servlet")) {
+                logEvent.setMessage("\u001B[38;5;117m" + message + "\u001B[0m");
+            }
+            true;
+          ]]></Script>
+        </Filter>
+      </Filters>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <!-- Tomcat 로그 레벨 제어 -->
+    <Logger name="org.apache.catalina" level="info" additivity="false">
+      <AppenderRef ref="Console"/>
+    </Logger>
+
+    <!-- Spring MVC 로그 제어 -->
+    <Logger name="org.springframework.web.servlet" level="info" additivity="false">
+      <AppenderRef ref="Console"/>
+    </Logger>
+
+    <!-- 기타 -->
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+
+ <!-- <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
  
- <!-- Appender, Layout 설정 -->
+ Appender, Layout 설정
  <Appenders>
   <Console name="console" target="SYSTEM_OUT">
    <PatternLayout pattern=" %-5level %c(%M%L) - %m%n" />
   </Console>
  </Appenders>
  
- <!-- Logger 설정 -->
+ Logger 설정
 	 <Loggers>
 	  <Root level="INFO" >
 	   <AppenderRef ref="console"/>  
@@ -20,4 +65,6 @@
 	   <AppenderRef ref="console"/>  
 	  </Logger>
 	 </Loggers>
- </Configuration>
+ </Configuration> -->
+ 
+ 

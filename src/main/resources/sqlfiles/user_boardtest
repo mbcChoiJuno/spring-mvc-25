@@ -1,0 +1,16 @@
+CREATE table user_tbl (
+	user_id		VARCHAR(20),
+	user_pw		VARCHAR(20),
+	user_name	VARCHAR(20)
+);
+
+
+CREATE SEQUENCE board_seq;
+CREATE table board_tbl (
+	board_index			
+	board_title
+	board_content
+	board_view_count
+	board_create_date
+	user_id
+);

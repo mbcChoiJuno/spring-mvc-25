@@ -1,0 +1,8 @@
+CREATE USER boardtest IDENTIFIED BY boardtest;
+
+ALTER USER boardtest DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
+
+GRANT connect, DBA TO boardtest;
+
+SELECT dbms_xdb.gethttpport FROM dual; -- 오라클 포트 확인
+EXEC dbms_xdb.sethttpport(9999);
