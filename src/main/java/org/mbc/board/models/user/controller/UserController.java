@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Controller
 @Log4j2
-@RequestMapping("/api/account")
+@RequestMapping("/api/account/v1")
 public class UserController {
 
 	@GetMapping("/users")

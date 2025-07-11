@@ -50,6 +50,15 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<!-- requestbody json 매핑 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	    <property name="messageConverters">
+	        <list>
+	            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+	        </list>
+	    </property>
+	</bean>
+	
 	
 	
 

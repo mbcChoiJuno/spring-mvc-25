@@ -5,7 +5,7 @@
     
 <mapper namespace="org.mbc.board.models.board.repository.IBoardMapper">
 
-	<select id="findAll" resultType="org.mbc.board.models.board.domain.GetBoardListVO">
+	<select id="getBoardList" resultType="org.mbc.board.models.board.domain.GetBoardListVO">
 		<![CDATA[
 			SELECT 
 				board_index as boardIndex, 
@@ -25,7 +25,7 @@
 		]]>
 	</select>
 	
-	<select id="findById" resultType="org.mbc.board.models.board.domain.GetBoardDetailVO">
+	<select id="getBoardDetail" resultType="org.mbc.board.models.board.domain.GetBoardDetailVO">
 		<![CDATA[
 			SELECT 
 				board_index as boardIndex, 
@@ -41,7 +41,7 @@
 		]]>
 	</select>
 
-	<insert id="post">
+	<insert id="postBoard">
 		<![CDATA[
 			INSERT INTO board_tbl (
 				board_index, 
@@ -57,7 +57,7 @@
 		]]>
 	</insert>
 
-	<insert id="postGetKey">
+	<insert id="postBoardGetKey">
 		<selectKey keyProperty="boardIndex" order="BEFORE" resultType="long">
 			SELECT board_seq.nextval FROM dual
 		</selectKey>
@@ -77,7 +77,7 @@
 		]]>
 	</insert>
 	
-	<delete id="delete">
+	<delete id="deleteBoard">
 		<![CDATA[
 			DELETE FROM board_tbl 
 			
@@ -86,7 +86,7 @@
 		]]>
 	</delete>
 	
-	<update id="update">
+	<update id="updateBoard">
 		<![CDATA[
 			UPDATE board_tbl 
 			

@@ -2,7 +2,6 @@ package org.mbc.board.models.board.service;
 
 import java.util.List;
 
-import org.mbc.board.core.interfaces.IService;
 import org.mbc.board.models.board.domain.CreateBoardVO;
 import org.mbc.board.models.board.domain.GetBoardDetailVO;
 import org.mbc.board.models.board.domain.GetBoardListVO;
@@ -19,38 +18,33 @@ public class BoardServiceImpl implements IBoardService {
 	
 	@Override
 	public List<GetBoardListVO> getBoardList() {
-		return boardMapper.findAll();
+		return boardMapper.getBoardList();
 	}
 
 	@Override
 	public GetBoardDetailVO getBoardDetail(Long id) {
 		
-		return boardMapper.findById(id);
+		return boardMapper.getBoardDetail(id);
 	}
 
 	@Override
-	public List<GetBoardListVO> findAll() {
-		return boardMapper.findAll();
-	}
-
-	@Override
-	public int post(CreateBoardVO dto) {
-		return boardMapper.post(dto);
+	public int postBoard(CreateBoardVO dto) {
+		return boardMapper.postBoard(dto);
 	}
 	
 	@Override
-	public int postGetKey(CreateBoardVO dto) {
-		return boardMapper.postGetKey(dto);
+	public int postBoardGetKey(CreateBoardVO dto) {
+		return boardMapper.postBoardGetKey(dto);
 	}
 
 	@Override
-	public int update(UpdateBoardVO dto) {
-		return boardMapper.update(dto);
+	public int updateBoard(UpdateBoardVO dto) {
+		return boardMapper.updateBoard(dto);
 	}
 
 	@Override
-	public int delete(Long id) {
-		return boardMapper.delete(id);
+	public int deleteBoard(Long id) {
+		return boardMapper.deleteBoard(id);
 	} 
 	
 	@Override

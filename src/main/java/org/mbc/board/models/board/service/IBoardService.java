@@ -13,14 +13,12 @@ public interface IBoardService {
 
 	GetBoardDetailVO getBoardDetail(Long id);
 
-	List<GetBoardListVO> findAll();
+	int postBoard(CreateBoardVO dto);
+	int postBoardGetKey(CreateBoardVO dto);
 
-	int post(CreateBoardVO dto);
-	int postGetKey(CreateBoardVO dto);
+	int updateBoard(UpdateBoardVO dto);
 
-	int update(UpdateBoardVO dto);
-
-	int delete(Long id);
+	int deleteBoard(Long id);
 
 	int increaseViewCount(Long id);
 

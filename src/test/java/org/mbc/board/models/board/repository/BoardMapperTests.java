@@ -25,7 +25,7 @@ public class BoardMapperTests {
 	public void findAllTest() {
 		log.info("BoardMapperTests.java findAllTest() in.......");
 		
-		boardServiceImpl.findAll().forEach(board -> {
+		boardServiceImpl.getBoardList().forEach(board -> {
 			log.info(board);
 		});
 	}
@@ -39,7 +39,7 @@ public class BoardMapperTests {
 		board.setContent("insertTest Content1");
 		board.setWriter("junotest");
 		
-		boardServiceImpl.post(board);
+		boardServiceImpl.postBoard(board);
 		
 		log.info(board);
 		
@@ -55,7 +55,7 @@ public class BoardMapperTests {
 		board.setContent("insertTest Content1");
 		board.setWriter("junotest");
 		
-		boardServiceImpl.postGetKey(board);
+		boardServiceImpl.postBoardGetKey(board);
 		
 		log.info(board);
 		log.info(board.getBoardIndex());
@@ -78,7 +78,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void deleteTest() {
-		int count = boardServiceImpl.delete(39L);
+		int count = boardServiceImpl.deleteBoard(39L);
 		log.info("삭제됨. " + count);
 	}
 	
@@ -89,7 +89,7 @@ public class BoardMapperTests {
 		board.setTitle("수정된 게시글 5");
 		board.setContent("수정된 내용 5");
 		
-		int count = boardServiceImpl.update(board);
+		int count = boardServiceImpl.updateBoard(board);
 		log.info("수정됨. " + count);
 	}
 	
