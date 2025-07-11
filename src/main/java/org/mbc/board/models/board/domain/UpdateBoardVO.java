@@ -9,5 +9,5 @@ public class UpdateBoardVO {
 	private String title;
 	private String content;
 	private String writer;
-	
+
 }

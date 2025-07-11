@@ -1,17 +1,17 @@
 package org.mbc.board.models.board.domain;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.Data;
 
 @Data
 public class GetBoardListVO {
-	
+
 	private Long boardIndex;
 	private String title;
 	private Long viewCount;
-	private LocalDateTime createDate;
-	private LocalDateTime updateDate;
+	private Date createDate;
+	private Date updateDate;
 	private String writer;
-	
+
 }

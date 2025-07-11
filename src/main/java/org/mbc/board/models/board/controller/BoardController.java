@@ -29,23 +29,24 @@ public class BoardController {
 	@Autowired
 	BoardServiceImpl boardService;
 	
+	
 	/**
 	 * 게시글 목록 전체 조회
 	 */
-	@GetMapping("/boards")
-	public void getBoardList(HttpServletRequest req) {
-		
-		int status = 404;
-		String error = "Not Found";
-		String message = "~~~";
-		
-		
-		boardService.getBoardList().forEach(board -> {
+	@GetMapping("/boards") //192.168.111.104:80/mbc-board/api/board/v1/boards
+	public String getBoardList(Model model) {
+
+		var boards = boardService.getBoardList();
+		boards.forEach(board -> {
 			log.info(board);
 		});
+
+	    model.addAttribute("list", boards);
+	    
+		return "/board/list";
 	}
-		
-	
+
+
 	/**
 	 * 게시글 상세 조회
 	 * @param boardIndex
@@ -53,19 +54,21 @@ public class BoardController {
 	 */
 	@GetMapping("/boards/{boardIndex}")
 	@Transactional
-	public void getBoardDetail(
-			@PathVariable("boardIndex") 
+	public String getBoardDetail(
+			@PathVariable("boardIndex")
 			Long boardIndex,
-			Model model) {
 
+			Model model) {
 		// 조회수 증가
 		boardService.increaseViewCount(boardIndex);
 		var board = boardService.getBoardDetail(boardIndex);
 	    log.info(board);
-	    
+
 	    model.addAttribute("board", board);
+
+	    return "redirect:/views/board/get";
 	}
-	
+
 	
 	/**
 	 * 게시글 등록
@@ -81,24 +84,24 @@ public class BoardController {
 
 	    return "redirect:/board/list";
 	}
-	
+
 	@PutMapping("/boards")
 	public String updateBoard(@RequestBody UpdateBoardVO board, RedirectAttributes redirectAttributes) {
 
 	    if (boardService.updateBoard(board) > 0)
-	    	redirectAttributes.addFlashAttribute("result", board.getBoardIndex());
+	    	redirectAttributes.addFlashAttribute("result", "success");
 
 	    return "redirect:/board/list";
 	}
-	
+
 	@DeleteMapping("/boards/{boardIndex}")
 	public String deleteBoard(
-			@PathVariable("boardIndex") 
+			@PathVariable("boardIndex")
 			Long boardIndex,
 			RedirectAttributes redirectAttributes) {
 
 	    if (boardService.deleteBoard(boardIndex) > 0)
-	    	redirectAttributes.addFlashAttribute("result", boardIndex);
+	    	redirectAttributes.addFlashAttribute("result", "success");
 
 	    return "redirect:/board/list";
 	}

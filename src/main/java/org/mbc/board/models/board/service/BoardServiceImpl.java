@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BoardServiceImpl implements IBoardService {
-	
+
 	@Autowired
 	IBoardMapper boardMapper;
-	
+
 	@Override
 	public List<GetBoardListVO> getBoardList() {
 		return boardMapper.getBoardList();
@@ -23,7 +23,7 @@ public class BoardServiceImpl implements IBoardService {
 
 	@Override
 	public GetBoardDetailVO getBoardDetail(Long id) {
-		
+
 		return boardMapper.getBoardDetail(id);
 	}
 
@@ -31,7 +31,7 @@ public class BoardServiceImpl implements IBoardService {
 	public int postBoard(CreateBoardVO dto) {
 		return boardMapper.postBoard(dto);
 	}
-	
+
 	@Override
 	public int postBoardGetKey(CreateBoardVO dto) {
 		return boardMapper.postBoardGetKey(dto);
@@ -45,8 +45,8 @@ public class BoardServiceImpl implements IBoardService {
 	@Override
 	public int deleteBoard(Long id) {
 		return boardMapper.deleteBoard(id);
-	} 
-	
+	}
+
 	@Override
 	public int increaseViewCount(Long id) {
 		return boardMapper.increaseViewCount(id);

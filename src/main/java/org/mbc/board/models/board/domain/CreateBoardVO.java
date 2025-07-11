@@ -9,5 +9,5 @@ public class CreateBoardVO {
 	private String title;
 	private String content;
 	private String writer;
-	
+
 }

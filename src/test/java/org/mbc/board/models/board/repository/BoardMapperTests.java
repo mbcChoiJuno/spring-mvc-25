@@ -20,11 +20,11 @@ public class BoardMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
 	BoardServiceImpl boardServiceImpl;
-	
+
 	@Test
 	public void findAllTest() {
 		log.info("BoardMapperTests.java findAllTest() in.......");
-		
+
 		boardServiceImpl.getBoardList().forEach(board -> {
 			log.info(board);
 		});
@@ -33,16 +33,16 @@ public class BoardMapperTests {
 	@Test
 	public void insertTest() {
 		log.info("BoardMapperTests.java insertTest() in.......");
-		
+
 		var board = new CreateBoardVO();
 		board.setTitle("insertTest1");
 		board.setContent("insertTest Content1");
 		board.setWriter("junotest");
-		
+
 		boardServiceImpl.postBoard(board);
-		
+
 		log.info(board);
-		
+
 		findAllTest();
 	}
 
@@ -54,9 +54,9 @@ public class BoardMapperTests {
 		board.setTitle("insertTest1");
 		board.setContent("insertTest Content1");
 		board.setWriter("junotest");
-		
+
 		boardServiceImpl.postBoardGetKey(board);
-		
+
 		log.info(board);
 		log.info(board.getBoardIndex());
 
@@ -67,30 +67,30 @@ public class BoardMapperTests {
 	@Transactional
 	public void findByIdTest() {
 		log.info("BoardMapperTests.java findByIdTest() in.......");
-		
+
 		long boardIndex = 1L;
-		
+
 		boardServiceImpl.increaseViewCount(boardIndex);
 		var board = boardServiceImpl.getBoardDetail(boardIndex);
 
 		log.info(board);
 	}
-	
+
 	@Test
 	public void deleteTest() {
 		int count = boardServiceImpl.deleteBoard(39L);
 		log.info("삭제됨. " + count);
 	}
-	
+
 	@Test
 	public void updateTest() {
 		var board = new UpdateBoardVO();
 		board.setBoardIndex(5L);
 		board.setTitle("수정된 게시글 5");
 		board.setContent("수정된 내용 5");
-		
+
 		int count = boardServiceImpl.updateBoard(board);
 		log.info("수정됨. " + count);
 	}
-	
+
 }
